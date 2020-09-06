@@ -1,0 +1,21 @@
+{% if cookiecutter.project_license == 'Apache Software License 2.0' %}
+    {%- include 'resources/copyright/apache-2.0.txt' -%}
+{% elif cookiecutter.project_license == 'BSD 2-Clause License' %}
+    {%- include 'resources/copyright/bsd-2-clause.txt' %}
+{% elif cookiecutter.project_license == 'BSD 3-Clause License' %}
+    {%- include 'resources/copyright/bsd-3-clause.txt' %}
+{% elif cookiecutter.project_license == 'Common Development and Distribution License' %}
+    {%- include 'resources/copyright/cddl-1.0.txt' %}
+{% elif cookiecutter.project_license == 'GNU General Public License version 3' %}
+    {%- include 'resources/copyright/gpl-3.0.txt' %}
+{% elif cookiecutter.project_license == 'GNU Affero General Public License version 3' %}
+    {%- include 'resources/copyright/agpl-3.0.txt' %}
+{% elif cookiecutter.project_license == 'GNU Lesser General Public License' %}
+    {%- include 'resources/copyright/lgpl-3.0.txt' %}
+{% elif cookiecutter.project_license == 'MIT license' %}
+    {%- include 'resources/copyright/mit.txt' %}
+{% elif cookiecutter.project_license == 'Mozilla Public License 2.0' %}
+    {%- include 'resources/copyright/mpl.txt' %}
+{% else %}
+    {%- include 'resources/copyright/other.txt' %}
+{% endif %}

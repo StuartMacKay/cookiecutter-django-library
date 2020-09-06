@@ -1,0 +1,64 @@
+{
+    "project_name": "Django App",
+    "project_description": "A short description of your project",
+    "project_keywords" : "A list of keywords",
+    "project_version": "0.1",
+    "project_license": [
+        "Apache Software License 2.0",
+        "BSD 2-Clause License",
+        "BSD 3-Clause License",
+        "Common Development and Distribution License",
+        "GNU General Public License version 3",
+        "GNU Affero General Public License version 3",
+        "GNU Lesser General Public License",
+        "MIT license",
+        "Mozilla Public License 2.0",
+        "Other"
+    ],
+
+    "package_name": "{{ cookiecutter.project_name.lower()|replace(' ', '-') }}",
+
+    "python_version": "3.8",
+    "app_name": "{{ cookiecutter.project_name|replace('Django ', '') }}",
+    "app_slug": "{{ cookiecutter.app_name|lower|replace(' ', '_') }}",
+    "app_config": "{{ cookiecutter.app_name|replace(' ', '') }}Config",
+
+    "author": "Author's full name",
+    "author_email": "Author's email address",
+
+    "create_copyright_notice": "y",
+    "create_makefile": "y",
+    "create_virtualenv": "y",
+    "create_project": "n",
+
+    "use_piptools": "y",
+
+    "code_checker": [
+        "flake8",
+        "pylama",
+        "other"
+    ],
+
+    "use_black": "y",
+    "use_isort": "y",
+
+    "use_bumpversion": "y",
+    "use_readthedocs": "y",
+    "use_coverage": "y",
+
+    "sign_commits": "y",
+    "sign_tags": "y",
+    "sign_uploads": "y",
+
+    "sphinx_theme": [
+        "sphinx-rtd-theme",
+        "alabaster",
+        "other"
+    ],
+
+    "test_runner": [
+        "django",
+        "pytest",
+        "other"
+    ]
+}

@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[co]
+*.egg*
+
+# Editor temp files
+*~
+
+# Ignore dot files except those required for the project
+.*
+!.cookiecutter
+!.gitignore
+!.gitkeep
+
+# Development artefacts
+build
+tmp
+venv
+
+# Any local makefiles
+*.mk
+
+# Files used  when debugging the generated project.
+!overrides/.flake8
+!overrides/clean-output.mk

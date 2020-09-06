@@ -1,0 +1,3 @@
+# Copyright (C) {% now "local", "%Y" %}
+# Author: {{ cookiecutter.author }}
+# Contact: {{ cookiecutter.author_email }}

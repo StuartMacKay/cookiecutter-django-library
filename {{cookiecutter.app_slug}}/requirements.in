@@ -1,0 +1,45 @@
+# Install the app and dependencies for development. It is done this way
+# rather than using setup.py develop directly as that only makes Django
+# visible to the app and not generally.
+
+-e .
+
+# bumpversion is no longer maintained so we use bump2version until the
+# point where bump2version emerges as the official bumpversion, see
+# https://github.com/c4urself/bump2version/issues/86
+
+{% if cookiecutter.use_bumpversion == "y" -%}
+bump2version
+{%- endif %}
+
+{% if cookiecutter.test_runner == "pytest" -%}
+pytest
+pytest-django
+{%- if cookiecutter.use_black == "y" %}
+pytest-black
+{%- endif %}
+{%- if cookiecutter.code_checker == "flake8" %}
+pytest-flake8
+{%- endif %}
+{%- if cookiecutter.code_checker == "pylama" %}
+pytest-pylama
+{%- endif %}
+{%- if cookiecutter.use_isort == "y" %}
+pytest-isort
+{%- endif %}
+{%- if cookiecutter.use_coverage == "y" %}
+pytest-cov
+{%- endif %}
+{%- endif %}
+
+{% if cookiecutter.use_coverage == "y" and cookiecutter.test_runner != "pytest" -%}
+coverage
+{%- endif %}
+
+{% if cookiecutter.use_readthedocs == "y" -%}
+sphinx
+sphinx-rtd-theme
+{%- endif %}
+
+tox
+twine

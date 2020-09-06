@@ -1,0 +1,4 @@
+Copyright (C) {% now "local", "%Y" %} {{ cookiecutter.author }}
+
+The files in this library are subject to the terms of the BSD
+2-Clause License.
