@@ -1,0 +1,100 @@
+ToDo
+----
+A list of issues, ideas, tasks and stuff for the project. Constantly changing,
+evolving and occasionally thrown away and rewritten.
+
+* Backlog
+
+  - look at flake8 plugins
+
+  - Add template coverage
+
+    https://pypi.org/project/django-coverage-plugin/
+
+  - pyproject.toml, separate config files or setup.cfg for tool configuration
+
+    find out more about pyproject.toml
+    do all the tools used support it
+
+    It's all a bit of a mess.
+
+  - looks like `keywords` in setup.py might be a comma separated list.
+
+  - add a makefile for windows?
+
+  - document how .cookiecutterrc is used to create defaults.
+
+  - Add configuration files for editors?
+
+      PyCharm / Sublime / emacs / vim / etc.
+
+  - Add other app files:
+
+    - AUTHORS.rst
+    - CONTRIBUTING.rst
+
+  - Add an option to install tools like flake8 in --user space rather than
+    having separate installs for each venv. You can still have completely
+    isolated environments but it would be nice to upgrade things like flake8
+    or pytest and have them updated for all venvs rather having to do it
+    over and over again.
+
+    It's not clear this is possible, when --site-system-packages is given
+    pip might look in --user and then the site distribution but more research
+    is needed: https://github.com/pypa/pip/issues/4141
+
+  - Add support for CI/CD and other third-party providers:
+
+      CircleCI
+      Travis
+      AppVeyor
+      ScrutinizerCI
+      Coveralls
+      Codacy
+
+  - Add support for badges? Rather than just adding bling or wasting
+    bandwidth look at whether badges provide useful info.
+
+  - Create a "standard" outline for the app README.rst that has all the
+    useful/expected sections and takes a little part of the effort out of
+    creating documentation.
+
+  - add url to setup.py?
+
+    It's reported as being a required piece of metadata however it's
+    another value to add to cookiecutter.json and the user might not
+    have decided on where the code lives when the project is generated.
+
+* Ready
+
+  - Include building the documentation as part of the tests.
+
+  - check the quickstart section in the top-level README.rst
+
+* Done
+
+  - Finished integration with Read The Docs.
+
+  - Added a table describing all the configuration parameters to README.rst.
+
+  - Using pip-tools to manage package version numbers is now optional.
+
+  - The version number and release number in sphinx docs/conf.py is mow
+    set correctly.
+
+  - Added configuration options to sign_commits, sign_tags and sign_uploads
+    so you don't forget to do it.
+
+  - Got configuration for running tests with django test runner and tox working.
+
+  - Added pytest and a test_runner option to the configuration to select which
+    runner to use: django or pytest.
+
+  - Removed the test directory from the root of the project. The tests run quite
+    happily using the site settings so there's no need to maintain both.
+
+  - Added support for coverage.
+
+  - Added makefile targets for doing releases.
+
+  - Added pyproject.toml for configuring black.
