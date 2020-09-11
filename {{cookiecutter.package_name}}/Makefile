@@ -192,7 +192,7 @@ venv:
 	$(pip) install pip-tools
 	$(pip-sync)
 {%- else %}
-	$(pip) install
+	$(pip) install -r requirements.txt
 {%- endif %}
 
 .PHONY: verify
