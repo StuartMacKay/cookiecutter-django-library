@@ -96,7 +96,7 @@ clean-build:
 .PHONY: clean-tests
 clean-tests:
 	rm -rf .tox
-{%- if cookiecutter.test_runner == "pytest" -%}
+{%- if cookiecutter.test_runner == "pytest" %}
 	rm -rf .pytest_cache
 {%- endif %}
 {%- if cookiecutter.use_coverage == "y" %}
