@@ -1,6 +1,11 @@
 #
 # Makefile: Commands to simplify development and releases
 #
+# Usage:
+#
+#    make clean
+#    make checks
+#    make patch build upload
 
 # You can set these variable on the command line.
 PYTHON = python{{ cookiecutter.python_version }}
@@ -61,9 +66,10 @@ help:
 	@echo "  clean-coverage       to clean the test coverage data and reports"
 {%- endif %}
 	@echo "  clean-venv           to clean the virtualenv"
-	@echo "  clean                to clean everything"
+	@echo "  clean                to clean everything EXCEPT the virtualenv"
 	@echo
 	@echo "  build                to build the package"
+	@echo "  checks               to run quality code checks"
 {%- if cookiecutter.use_coverage == "y" %}
 	@echo "  coverage             to measure the test coverage"
 {%- endif %}
@@ -75,17 +81,13 @@ help:
 	@echo "  migrations           to run makemigrations management command"
 {%- if cookiecutter.use_bumpversion == "y" %}
 	@echo "  minor                to update the version number for a minor release, e.g. 2.1 to 2.2"
-	@echo "  nightly              to build a development version of the package"
 	@echo "  patch                to update the version number for a patch release, e.g. 2.1.1 to 2.1.2"
-{%- endif %}
-{%- if cookiecutter.use_black == "y" or cookiecutter.use_isort == "y" %}
-	@echo "  pretty               to reformat the app source code"
 {%- endif %}
 	@echo "  runserver            to run the Django demo site"
 	@echo "  test                 to run the tests during development"
+	@echo "  test-all             to run the tests for all the supported environments"
 	@echo "  upload               to upload a release to PyPI repository"
 	@echo "  venv                 to create the virtualenv and install dependencies"
-	@echo "  verify               to verify the tests pass for all supported environments"
 	@echo
 
 .PHONY: clean-build
@@ -116,11 +118,18 @@ clean-versions:
 	rm requirements.txt
 
 .PHONY: clean
-clean: clean-build clean-tests clean-venv clean-versions
+clean: clean-build clean-tests clean-versions
 
 .PHONY: build
 build: clean-build
 	$(python) setup.py sdist bdist_wheel
+
+.PHOMY: checks
+checks:
+	{% if cookiecutter.code_checker == "flake8" %}flake8 $(app_dir){% endif %}
+	{% if cookiecutter.code_checker == "pylama" %}pylama $(app_dir){% endif %}
+	{% if cookiecutter.use_black %}black --check $(app_dir){% endif %}
+	{% if cookiecutter.use_isort %}isort --check $(app_dir){% endif %}
 
 {% if cookiecutter.use_coverage == "y" -%}
 .PHONY: coverage
@@ -153,20 +162,9 @@ migrations:
 minor:
 	$(bumpversion) minor
 
-.PHONY: nightly
-nightly: clean-build
-	$(python) setup.py egg_info --tag-build .dev- --tag-date sdist
-
 .PHONY: patch
 patch:
 	$(bumpversion) patch
-
-{% if cookiecutter.use_black == "y" or cookiecutter.use_isort == "y" -%}
-.PHONY: pretty
-pretty:
-	{% if cookiecutter.use_black == "y" %}$(black) src{% endif %}
-	{% if cookiecutter.use_isort == "y" %}$(isort) src{% endif %}
-{%- endif %}
 
 .PHONY: runserver
 runserver: venv
@@ -181,6 +179,10 @@ test:
 	pytest $(pytest_opts)
 {%- endif %}
 
+.PHONY: test-all
+test-all: test
+	tox
+
 .PHONY: upload
 upload:
 	$(twine) upload $(upload_opts) dist/*
@@ -194,10 +196,6 @@ venv:
 {%- else %}
 	$(pip) install -r requirements.txt
 {%- endif %}
-
-.PHONY: verify
-verify: test
-	tox
 
 # include any local makefiles
 -include *.mk
