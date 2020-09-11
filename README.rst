@@ -42,10 +42,21 @@ Ensure you have cookiecutter installed::
 
     pip install --user cookiecutter
 
+Change to the directory where the project will be generated::
+
+    cd ~/Development
+
 Then use cookiecutter to generate your project from this template with::
 
     cookiecutter gh:StuartMacKay/cookiecutter-django-library
 
+Answer all the configuration options and you are good to go::
+
+    cd <my new app>
+    make checks test-all build upload
+
+And the first, working, version of your app has been deployed on PyPI
+for all to enjoy!
 
 Configuration options
 ---------------------
@@ -227,22 +238,21 @@ Making a release
 The Makefile is intended to automate as much as possible so releasing a new
 patch version is as simple as::
 
-    make patch verify build upload
+    make clean checks test-all patch build upload
 
-Alternatively, if you want to release developer releases, bump the version first
-then upload whenever you have something new::
+Even without a Makefile the process is still very simple. First make sure we
+start from a clean sheet::
 
-    make major
+    rm -rf build
+    rm -rf src/*.egg-info
+    rm -rf .tox
+    rm -rf .pytest_cache     # if you use pytest
 
-then::
+Run the code quality checks to make sure everything is nice::
 
-    make test nightly upload
-
-and finally::
-
-    make verify build upload
-
-Even without a Makefile the process is still very simple.
+    flake8 src
+    black src
+    isort src
 
 Depending on the scope of the changes, update the package version, for example::
 
@@ -252,17 +262,13 @@ Run all the tests::
 
     tox
 
-
 Build the release, removing anything leftover previously:
 
-    rm -rf build
-    rm -rf src/*.egg-info
     python sdist bdist_wheel
 
 And upload it to PyPI::
 
     twine upload --skip-existing dist/*
-
 
 For security, bump2version and twine can sign the packages so your users
 know exactly where it came from. You'll need to generate a GPG key first.
