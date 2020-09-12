@@ -5,6 +5,11 @@ evolving and occasionally thrown away and rewritten.
 
 * Backlog
 
+  - move the django site files to a folder, keep manage.py in root
+
+    It's a bit cleaner looking and it's where users would expect to
+    see them but maybe it's overkills.
+
   - look at flake8 plugins
 
   - Add template coverage
@@ -69,8 +74,6 @@ evolving and occasionally thrown away and rewritten.
 
   - Include building the documentation as part of the tests.
 
-  - check the quickstart section in the top-level README.rst
-
 * Done
 
   - Finished integration with Read The Docs.
@@ -98,3 +101,11 @@ evolving and occasionally thrown away and rewritten.
   - Added makefile targets for doing releases.
 
   - Added pyproject.toml for configuring black.
+
+  - FIXED: The makefile venv target does not specify the
+    requirements.txt file when using pip and not pip tools.
+
+  - FIXED: Directory where project is generated appears to use app_slug
+    and not the package_name.
+
+  - Reorganised the makefile targets with better names and a clearer workflow.
