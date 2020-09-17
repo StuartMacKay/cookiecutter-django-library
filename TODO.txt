@@ -5,11 +5,6 @@ evolving and occasionally thrown away and rewritten.
 
 * Backlog
 
-  - move the django site files to a folder, keep manage.py in root
-
-    It's a bit cleaner looking and it's where users would expect to
-    see them but maybe it's overkills.
-
   - look at flake8 plugins
 
   - Add template coverage
@@ -69,43 +64,3 @@ evolving and occasionally thrown away and rewritten.
     It's reported as being a required piece of metadata however it's
     another value to add to cookiecutter.json and the user might not
     have decided on where the code lives when the project is generated.
-
-* Ready
-
-  - Include building the documentation as part of the tests.
-
-* Done
-
-  - Finished integration with Read The Docs.
-
-  - Added a table describing all the configuration parameters to README.rst.
-
-  - Using pip-tools to manage package version numbers is now optional.
-
-  - The version number and release number in sphinx docs/conf.py is mow
-    set correctly.
-
-  - Added configuration options to sign_commits, sign_tags and sign_uploads
-    so you don't forget to do it.
-
-  - Got configuration for running tests with django test runner and tox working.
-
-  - Added pytest and a test_runner option to the configuration to select which
-    runner to use: django or pytest.
-
-  - Removed the test directory from the root of the project. The tests run quite
-    happily using the site settings so there's no need to maintain both.
-
-  - Added support for coverage.
-
-  - Added makefile targets for doing releases.
-
-  - Added pyproject.toml for configuring black.
-
-  - FIXED: The makefile venv target does not specify the
-    requirements.txt file when using pip and not pip tools.
-
-  - FIXED: Directory where project is generated appears to use app_slug
-    and not the package_name.
-
-  - Reorganised the makefile targets with better names and a clearer workflow.
