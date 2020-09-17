@@ -114,12 +114,8 @@ clean-coverage:
 clean-venv:
 	rm -rf venv
 
-.PHONE: clean-versions
-clean-versions:
-	rm requirements.txt
-
 .PHONY: clean
-clean: clean-build clean-tests clean-versions
+clean: clean-build clean-tests clean-coverage
 
 .PHONY: build
 build: clean-build
