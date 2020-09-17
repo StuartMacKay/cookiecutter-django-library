@@ -11,6 +11,7 @@
 PYTHON = python{{ cookiecutter.python_version }}
 
 # Where everything lives
+site_python := /usr/bin/env $(PYTHON)
 
 root_dir = $(realpath .)
 app_dir = $(root_dir)/src/{{ cookiecutter.app_slug }}
@@ -188,7 +189,7 @@ upload:
 	$(twine) upload $(upload_opts) dist/*
 
 venv:
-	$(PYTHON) -m venv venv
+	$(site_python) -m venv venv
 	$(pip) install --upgrade pip setuptools wheel
 {%- if cookiecutter.use_piptools == "y" %}
 	$(pip) install pip-tools
