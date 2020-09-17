@@ -1,5 +1,5 @@
 Welcome to {{ cookiecutter.project_name}}'s documentation!
-{% for _ in cookiecutter.project_name %}={% endfor %}
+==========={% for _ in cookiecutter.project_name %}={% endfor %}=================
 
 Contents:
 
