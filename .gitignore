@@ -19,7 +19,3 @@ venv
 
 # Any local makefiles
 *.mk
-
-# Files used  when debugging the generated project.
-!overrides/.flake8
-!overrides/clean-output.mk
