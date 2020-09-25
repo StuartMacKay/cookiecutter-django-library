@@ -18,6 +18,7 @@ create_project = "{{ cookiecutter.create_project }}" == "y"
 
 use_piptools = "{{ cookiecutter.use_piptools}}" == "y"
 use_readthedocs = "{{ cookiecutter.use_readthedocs}}" == "y"
+use_travis = "{{ cookiecutter.continuous_integration }}" == "Travis CI"
 
 if create_virtualenv:
     python = "python{{ cookiecutter.python_version }}"
@@ -57,3 +58,6 @@ if not create_project:
 
 if not use_readthedocs:
     remove("docs")
+
+if not use_travis:
+    remove(".travis.yml")

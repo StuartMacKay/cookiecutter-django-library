@@ -60,5 +60,10 @@
         "django",
         "pytest",
         "other"
+    ],
+
+    "continuous_integration": [
+        "Travis CI",
+        "Other"
     ]
 }

@@ -10,6 +10,7 @@ __pycache__/
 .*
 !.gitignore
 !.gitkeep
+{% if cookiecutter.continuous_integration == "Travis CI" %}!.travis.yml{% endif %}
 
 # Project artefacts
 build
