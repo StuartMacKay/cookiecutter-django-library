@@ -1,66 +1,101 @@
 ToDo
 ----
 A list of issues, ideas, tasks and stuff for the project. Constantly changing,
-evolving and occasionally thrown away and rewritten.
+evolving and occasionally thrown away and rewritten. In order of importance /
+likelihood of getting worked on:
 
-* Backlog
+- [feature] Add support for an existing repository.
 
-  - look at flake8 plugins
+  A workflow that sets up the remote repository first allows to do a lot
+  more when generating a project:
 
-  - Add template coverage
+  - Initialize the local repository
+  - Add the url parameter to setup.py
+  - Add a badges, e.g. for Travis CI
+  - Configure project settings for tools such as PyCharm
 
-    https://pypi.org/project/django-coverage-plugin/
+  Issues:
 
-  - pyproject.toml, separate config files or setup.cfg for tool configuration
+  - Other projects try to break the urls into components, e.g. repo_domain,
+    repo_user, repo_name but all we really are interested in are two urls:
 
-    find out more about pyproject.toml
-    do all the tools used support it
+    the repository url:
 
-    It's all a bit of a mess.
+    git@github.com:StuartMacKay/django-library-project.git
+    https://github.com/StuartMacKay/django-library-project.git
+    gh repo clone StuartMacKay/django-library-project
 
-  - looks like `keywords` in setup.py might be a comma separated list.
+    and the root directory on the repository host:
 
-  - add a makefile for windows?
+    https://github.com/StuartMacKay/django-library-project
 
-  - document how .cookiecutterrc is used to create defaults.
+    These are probably best captured as:
 
-  - Add configuration files for editors?
+      repository_url
+      project_url
 
-      PyCharm / Sublime / emacs / vim / etc.
+- [feature] Add an option to install tools like flake8 in --user space
+  rather than having separate installs for each venv. You can still have
+  completely isolated environments but it would be nice to upgrade things
+  like flake8 or pytest and have them updated for all venvs rather having
+  to do it over and over again - even if it is automated.
 
-  - Add other app files:
+  Issues:
 
-    - AUTHORS.rst
-    - CONTRIBUTING.rst
-
-  - Add an option to install tools like flake8 in --user space rather than
-    having separate installs for each venv. You can still have completely
-    isolated environments but it would be nice to upgrade things like flake8
-    or pytest and have them updated for all venvs rather having to do it
-    over and over again.
-
-    It's not clear this is possible, when --site-system-packages is given
+  - It's not clear this is possible, when --site-system-packages is given
     pip might look in --user and then the site distribution but more research
     is needed: https://github.com/pypa/pip/issues/4141
 
-  - Add support for CI/CD and other third-party providers:
+- [feature] Add a choice to have separate config files for each tool
+  or have everything unified, where possible, in setup.cfg
 
-      CircleCI
-      Travis
-      AppVeyor
-      ScrutinizerCI
-      Coveralls
-      Codacy
+  Issues:
 
-  - Add support for badges? Rather than just adding bling or wasting
-    bandwidth look at whether badges provide useful info.
+  - How much support do existing tools have for pyproject.toml?
 
-  - Create a "standard" outline for the app README.rst that has all the
-    useful/expected sections and takes a little part of the effort out of
-    creating documentation.
+- [issue] pip-compile replaces relative path
 
-  - add url to setup.py?
+  This means requirements.txt needs to be edited when pip-compile is run.
+  There does appear to be a solution but it's not clear when it will get
+  released: https://github.com/jazzband/pip-tools/issues/204
 
-    It's reported as being a required piece of metadata however it's
-    another value to add to cookiecutter.json and the user might not
-    have decided on where the code lives when the project is generated.
+- [issue] Get the docs built automatically when pushing the repository.
+
+  - Create a config file for Read The Docs, e.g.  https://github.com/pallets/click/
+
+- [feature] Now that support for Travis CI has been added, what about support
+  other third-party providers:
+
+    CircleCI
+    AppVeyor
+    ScrutinizerCI
+    Coveralls
+    Codacy
+
+- [feature] Add config files for PyCharm.
+
+  it would be nice if the repository, tools such as black, python interpreter,
+  project structure could all be setup out of the box.
+
+- [research] Look at flake8 plugins
+
+- [research] Add template coverage
+
+  https://pypi.org/project/django-coverage-plugin/
+
+- [resarch] looks like `keywords` in setup.py might be a comma separated list.
+
+- [decision] add a makefile for windows?
+
+- [documentation] document how .cookiecutterrc is used to create defaults.
+
+- [decision] Add other app files:
+
+  - AUTHORS.rst
+  - CONTRIBUTING.rst
+
+- [documentation] Create a "standard" outline for the app README.rst that h
+  as all the useful/expected sections and takes a little part of the effort
+  out of creating documentation.
+
+  - remove the table of contents
