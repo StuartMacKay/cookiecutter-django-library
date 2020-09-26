@@ -4,36 +4,6 @@ A list of issues, ideas, tasks and stuff for the project. Constantly changing,
 evolving and occasionally thrown away and rewritten. In order of importance /
 likelihood of getting worked on:
 
-- [feature] Add support for an existing repository.
-
-  A workflow that sets up the remote repository first allows to do a lot
-  more when generating a project:
-
-  - Initialize the local repository
-  - Add the url parameter to setup.py
-  - Add a badges, e.g. for Travis CI
-  - Configure project settings for tools such as PyCharm
-
-  Issues:
-
-  - Other projects try to break the urls into components, e.g. repo_domain,
-    repo_user, repo_name but all we really are interested in are two urls:
-
-    the repository url:
-
-    git@github.com:StuartMacKay/django-library-project.git
-    https://github.com/StuartMacKay/django-library-project.git
-    gh repo clone StuartMacKay/django-library-project
-
-    and the root directory on the repository host:
-
-    https://github.com/StuartMacKay/django-library-project
-
-    These are probably best captured as:
-
-      repository_url
-      project_url
-
 - [feature] Add an option to install tools like flake8 in --user space
   rather than having separate installs for each venv. You can still have
   completely isolated environments but it would be nice to upgrade things

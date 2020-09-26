@@ -32,6 +32,7 @@ Features
 * Automate tasks for testing, building and deploying your app with `make`_.
 * Manage package versions and your virtualenv with `pip-tools`_.
 * Make updating version numbers easy with `bump2version`_.
+* Initializes git and connects it to a remote repository.
 * Sign commits, tags and uploads by default so you don't forget.
 * Easily run tests for all supported environments using `tox`_.
 
@@ -112,6 +113,12 @@ To generate the project you will be asked for the following fields, in order:
       - The URL of the site where the project is hosted, for example:
         https://github.com/StuartMacKay/django-library-project. Leave
         blank if you do not want to set the url right away.
+
+    * - repository_url
+      - <blank>
+      - The URL used to checkout the code, for example:
+        git@github.com:StuartMacKay/cookiecutter-django-library.git. Leave
+        blank if you do not want to set up the repository right away.
 
     * - package_name
       - django_app

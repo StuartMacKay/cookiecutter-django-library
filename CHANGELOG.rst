@@ -8,6 +8,8 @@ Latest
 * Updated Makefile clean, build and test the docs. Fixed issues found as result.
 * Added support for Travis CI.
 * Added parameter for setting the project's website.
+* Added parameter for setting the remote repository URL.
+* Post-generation hook now sets up the project git repository.
 
 v0.1.0 (2020-09-12)
 -------------------

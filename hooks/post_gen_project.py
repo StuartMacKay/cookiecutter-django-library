@@ -11,10 +11,20 @@ def remove(filepath):
         shutil.rmtree(filepath)
 
 
+def git_init():
+    # Although there should not be any cruft in the generated project
+    # leave adding and committing the files for later. That also neatly
+    # sidesteps the issue of setting up or selecting the GPG key if
+    # commits are going to be signed.
+    subprocess.run(["git", "init"])
+    subprocess.run(["git", "remote", "add", "origin", "{{ cookiecutter.repository_url }}"])
+
+
 create_copyright_notice = "{{ cookiecutter.create_copyright_notice }}" == "y"
 create_makefile = "{{ cookiecutter.create_makefile }}" == "y"
 create_virtualenv = "{{ cookiecutter.create_virtualenv }}" == "y"
 create_project = "{{ cookiecutter.create_project }}" == "y"
+create_repository = "{{ cookiecutter.repository_url }}" != ""
 
 use_piptools = "{{ cookiecutter.use_piptools}}" == "y"
 use_readthedocs = "{{ cookiecutter.use_readthedocs}}" == "y"
@@ -61,3 +71,7 @@ if not use_readthedocs:
 
 if not use_travis:
     remove(".travis.yml")
+
+if create_repository:
+    git_init()
+

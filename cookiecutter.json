@@ -17,6 +17,8 @@
     ],
     "project_url": "",
 
+    "repository_url": "",
+
     "package_name": "{{ cookiecutter.project_name.lower()|replace(' ', '-') }}",
 
     "python_version": "3.8",
