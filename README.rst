@@ -107,6 +107,12 @@ To generate the project you will be asked for the following fields, in order:
         is the default as it is the first in the list. There are many other
         options available: https://choosealicense.com/.
 
+    * - project_url
+      - <blank>
+      - The URL of the site where the project is hosted, for example:
+        https://github.com/StuartMacKay/django-library-project. Leave
+        blank if you do not want to set the url right away.
+
     * - package_name
       - django_app
       - The name of the distributed package (whatever you would ``pip install``).

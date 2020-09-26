@@ -35,6 +35,9 @@ setup(
     author="{{ cookiecutter.author }}",
     author_email="{{ cookiecutter.author_email }}",
     keywords="{{ cookiecutter.project_keywords }}",
+{%- if cookiecutter.project_url %}
+    url="{{ cookiecutter.project_url }}",
+{%- endif %}
     packages=[
         "{{ cookiecutter.app_slug }}",
         "{{ cookiecutter.app_slug }}/migrations"

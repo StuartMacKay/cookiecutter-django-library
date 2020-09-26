@@ -15,6 +15,7 @@
         "Mozilla Public License 2.0",
         "Other"
     ],
+    "project_url": "",
 
     "package_name": "{{ cookiecutter.project_name.lower()|replace(' ', '-') }}",
 
