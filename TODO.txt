@@ -4,6 +4,18 @@ A list of issues, ideas, tasks and stuff for the project. Constantly changing,
 evolving and occasionally thrown away and rewritten. In order of importance /
 likelihood of getting worked on:
 
+- [development] Find an easy easy to skip steps during development.
+
+  The django-library-project is the demonstrator of what the cookiecutter
+  template generates. As part of development this reference project get
+  generated repeatedly. However there are some steps, like compiling the
+  package version numbers using pip-tools and initializing the repository
+  that should only be performed once, if only to avoid repeated commits.
+
+  The most likely option is to set enviroment variables as these will only
+  be set for development. Generally, we want to avoid polluting the
+  post-generation hooks too much with development related code.
+
 - [feature] Add an option to install tools like flake8 in --user space
   rather than having separate installs for each venv. You can still have
   completely isolated environments but it would be nice to upgrade things
