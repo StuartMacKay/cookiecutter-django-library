@@ -10,6 +10,8 @@ Latest
 * Added parameter for setting the project's website.
 * Added parameter for setting the remote repository URL.
 * Post-generation hook now sets up the project git repository.
+* Split requirements into separate files.
+* Pip-tools are now required since it simplifies pinning package numbers.
 
 v0.1.0 (2020-09-12)
 -------------------

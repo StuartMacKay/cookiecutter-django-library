@@ -176,10 +176,6 @@ To generate the project you will be asked for the following fields, in order:
       - Create an example project (views, models, etc.). This is mainly used
         for debugging the template during development.
 
-    * - use_piptools
-      - y
-      - Use pip-tools for managing dependencies and pinning version numbers.
-
     * - code_checker
       - flake8
       - Tools for checking code quality. The list of choices includes:

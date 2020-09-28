@@ -34,8 +34,6 @@
     "create_virtualenv": "y",
     "create_project": "n",
 
-    "use_piptools": "y",
-
     "code_checker": [
         "flake8",
         "pylama",

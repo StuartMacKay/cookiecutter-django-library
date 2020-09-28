@@ -26,30 +26,24 @@ create_virtualenv = "{{ cookiecutter.create_virtualenv }}" == "y"
 create_project = "{{ cookiecutter.create_project }}" == "y"
 create_repository = "{{ cookiecutter.repository_url }}" != ""
 
-use_piptools = "{{ cookiecutter.use_piptools}}" == "y"
+use_pytest = "{{ cookiecutter.test_runner}}" == "pytest"
 use_readthedocs = "{{ cookiecutter.use_readthedocs}}" == "y"
 use_travis = "{{ cookiecutter.continuous_integration }}" == "Travis CI"
 
 if create_virtualenv:
     python = "python{{ cookiecutter.python_version }}"
     pip = "./venv/bin/pip{{ cookiecutter.python_version}}"
+    pip_compile = "./venv/bin/pip-compile"
+    pip_sync = "./venv/bin/pip-sync"
 
     subprocess.run([python, "-m", "venv", "venv"])
     subprocess.run([pip, "install", "--upgrade", "pip", "setuptools", "wheel"])
-    # subprocess.run(['./venv/bin/python', "setup.py", "develop"])
+    subprocess.run([pip, "install", "pip-tools"])
 
-    if use_piptools:
-        pip_compile = "./venv/bin/pip-compile"
-        pip_sync = "./venv/bin/pip-sync"
-
-        subprocess.run([pip, "install", "pip-tools"])
-        subprocess.run([pip_compile])
-        subprocess.run([pip_sync])
-    else:
-        subprocess.run([pip, "install", "-r", "requirements.in"])
-        with open("requirements.txt", "w") as f:
-            subprocess.call([pip, "freeze"], stdout=f)
-        remove("requirements.in")
+    subprocess.run([pip_compile, "requirements/dev.in", "--output-file", "requirements/dev.txt"])
+    subprocess.run([pip_compile, "requirements/docs.in", "--output-file", "requirements/docs.txt"])
+    subprocess.run([pip_compile, "requirements/tests.in", "--output-file", "requirements/tests.txt"])
+    subprocess.run([pip_sync, "requirements/dev.txt"])
 
 # Delete the resources directory tree. It was only used with include
 # template directives and it not needed in the generated project.
@@ -66,8 +60,14 @@ if not create_project:
     remove("src/{{ cookiecutter.app_slug }}/migrations/0001_initial.py")
     remove("src/{{ cookiecutter.app_slug }}/tests/test_views.py")
 
+if not use_pytest:
+    remove("requirements/tests.in")
+    remove("requirements/tests.txt")
+
 if not use_readthedocs:
     remove("docs")
+    remove("requirements/docs.in")
+    remove("requirements/docs.txt")
 
 if not use_travis:
     remove(".travis.yml")

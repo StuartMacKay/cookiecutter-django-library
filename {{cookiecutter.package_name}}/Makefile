@@ -18,12 +18,9 @@ app_dir = $(root_dir)/src/{{ cookiecutter.app_slug }}
 
 python := $(root_dir)/venv/bin/python3
 pip := $(root_dir)/venv/bin/pip3
-django := $(python) $(root_dir)/manage.py
-
-{%- if cookiecutter.use_piptools %}
 pip-compile := $(root_dir)/venv/bin/pip-compile
 pip-sync := $(root_dir)/venv/bin/pip-sync
-{%- endif %}
+django := $(python) $(root_dir)/manage.py
 {%- if cookiecutter.code_checker in ["flake8", "pylama"] %}
 checker := $(root_dir)/venv/bin/{{ cookiecutter.code_checker }}
 {%- endif %}
@@ -206,12 +203,8 @@ upload:
 venv:
 	$(site_python) -m venv venv
 	$(pip) install --upgrade pip setuptools wheel
-{%- if cookiecutter.use_piptools == "y" %}
 	$(pip) install pip-tools
-	$(pip-sync)
-{%- else %}
-	$(pip) install -r requirements.txt
-{%- endif %}
+	$(pip-sync) -r requirements/dev.txt
 
 # include any local makefiles
 -include *.mk
