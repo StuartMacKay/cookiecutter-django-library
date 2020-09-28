@@ -69,6 +69,9 @@ if not use_readthedocs:
     remove("requirements/docs.in")
     remove("requirements/docs.txt")
 
+if not use_readthedocs:
+    remove(".readthedocs.yml")
+
 if not use_travis:
     remove(".travis.yml")
 

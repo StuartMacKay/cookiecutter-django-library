@@ -12,6 +12,7 @@ Latest
 * Post-generation hook now sets up the project git repository.
 * Split requirements into separate files.
 * Pip-tools are now required since it simplifies pinning package numbers.
+* Added config file for Read the Docs.
 
 v0.1.0 (2020-09-12)
 -------------------
