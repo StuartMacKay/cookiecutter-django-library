@@ -3,6 +3,8 @@ import os
 import shutil
 import subprocess
 
+COOKIECUTTER_ENV = os.environ.get("COOKIECUTTER_ENV")
+
 CREATE_COPYRIGHT_NOTICE = "{{ cookiecutter.create_copyright_notice }}" == "y"
 CREATE_MAKEFILE = "{{ cookiecutter.create_makefile }}" == "y"
 CREATE_VIRTUALENV = "{{ cookiecutter.create_virtualenv }}" == "y"
@@ -12,6 +14,10 @@ CREATE_REPOSITORY = "{{ cookiecutter.repository_url }}" != ""
 USE_PYTEST = "{{ cookiecutter.test_runner}}" == "pytest"
 USE_READTHEDOCS = "{{ cookiecutter.use_readthedocs}}" == "y"
 USE_TRAVIS = "{{ cookiecutter.continuous_integration }}" == "Travis CI"
+
+if COOKIECUTTER_ENV == 'dev':
+    CREATE_VIRTUALENV = not os.path.exists("venv")
+    CREATE_REPOSITORY = not os.path.exists(".git")
 
 
 def remove(filepath):

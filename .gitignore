@@ -11,6 +11,7 @@ __pycache__/
 !.cookiecutter
 !.gitignore
 !.gitkeep
+!.env
 
 # Development artefacts
 build

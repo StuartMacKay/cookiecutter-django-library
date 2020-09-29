@@ -13,6 +13,7 @@ Latest
 * Split requirements into separate files.
 * Pip-tools are now required since it simplifies pinning package numbers.
 * Added config file for Read the Docs.
+* For development, generating the virtualenv and repository can be skipped.
 
 v0.1.0 (2020-09-12)
 -------------------
