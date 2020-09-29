@@ -10,6 +10,7 @@ __pycache__/
 .*
 !.gitignore
 !.gitkeep
+!.editorconfig
 {% if cookiecutter.continuous_integration == "Travis CI" %}!.travis.yml{% endif %}
 {% if cookiecutter.use_readthedocs == "y" %}!.readthedocs.yml{% endif %}
 
