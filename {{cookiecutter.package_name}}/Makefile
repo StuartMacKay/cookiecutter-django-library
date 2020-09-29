@@ -132,10 +132,18 @@ build: clean-build
 
 .PHOMY: checks
 checks:
-	{% if cookiecutter.code_checker == "flake8" %}flake8 $(app_dir){% endif %}
-	{% if cookiecutter.code_checker == "pylama" %}pylama $(app_dir){% endif %}
-	{% if cookiecutter.use_black %}black --check $(app_dir){% endif %}
-	{% if cookiecutter.use_isort %}isort --check $(app_dir){% endif %}
+	{%- if cookiecutter.code_checker == "flake8" %}
+	flake8 $(app_dir)
+	{%- endif %}
+	{%- if cookiecutter.code_checker == "pylama" %}
+	pylama $(app_dir)
+	{%- endif %}
+	{%- if cookiecutter.use_black %}
+	black --check $(app_dir)
+	{%- endif %}
+	{%- if cookiecutter.use_isort %}
+	isort --check $(app_dir)
+	{%- endif %}
 
 {% if cookiecutter.use_coverage == "y" -%}
 .PHONY: coverage
