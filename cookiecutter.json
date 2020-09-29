@@ -1,7 +1,7 @@
 {
     "project_name": "Django App",
     "project_description": "A short description of your project",
-    "project_keywords" : "A list of keywords",
+    "project_keywords" : "A comma-separated list of keywords",
     "project_version": "0.1",
     "project_license": [
         "Apache Software License 2.0",

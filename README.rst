@@ -80,7 +80,7 @@ To generate the project you will be asked for the following fields, in order:
       - A one line description of what the app does.
 
     * - project_keywords
-      - A list of keywords
+      - A comma-separated list of keywords
       - Metadata (defined in `PEP 0314`_) that can be used to categorize your
         project.
 

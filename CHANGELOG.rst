@@ -14,6 +14,7 @@ Latest
 * Pip-tools are now required since it simplifies pinning package numbers.
 * Added config file for Read the Docs.
 * For development, generating the virtualenv and repository can be skipped.
+* Changed keywords parameter to be a comma-separated list of words.
 
 v0.1.0 (2020-09-12)
 -------------------
