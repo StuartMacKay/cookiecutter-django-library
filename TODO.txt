@@ -4,47 +4,6 @@ A list of issues, ideas, tasks and stuff for the project. Constantly changing,
 evolving and occasionally thrown away and rewritten. In order of importance /
 likelihood of getting worked on:
 
-- [development] Find an easy easy to skip steps during development.
-
-  The django-library-project is the demonstrator of what the cookiecutter
-  template generates. As part of development this reference project get
-  generated repeatedly. However there are some steps, like compiling the
-  package version numbers using pip-tools and initializing the repository
-  that should only be performed once, if only to avoid repeated commits.
-
-  The most likely option is to set enviroment variables as these will only
-  be set for development. Generally, we want to avoid polluting the
-  post-generation hooks too much with development related code.
-
-- [feature] Add an option to install tools like flake8 in --user space
-  rather than having separate installs for each venv. You can still have
-  completely isolated environments but it would be nice to upgrade things
-  like flake8 or pytest and have them updated for all venvs rather having
-  to do it over and over again - even if it is automated.
-
-  Issues:
-
-  - It's not clear this is possible, when --site-system-packages is given
-    pip might look in --user and then the site distribution but more research
-    is needed: https://github.com/pypa/pip/issues/4141
-
-- [feature] Add a choice to have separate config files for each tool
-  or have everything unified, where possible, in setup.cfg
-
-  Issues:
-
-  - How much support do existing tools have for pyproject.toml?
-
-- [issue] pip-compile replaces relative path
-
-  This means requirements.txt needs to be edited when pip-compile is run.
-  There does appear to be a solution but it's not clear when it will get
-  released: https://github.com/jazzband/pip-tools/issues/204
-
-- [issue] Get the docs built automatically when pushing the repository.
-
-  - Create a config file for Read The Docs, e.g.  https://github.com/pallets/click/
-
 - [feature] Now that support for Travis CI has been added, what about support
   other third-party providers:
 
@@ -54,20 +13,9 @@ likelihood of getting worked on:
     Coveralls
     Codacy
 
-- [feature] Add config files for PyCharm.
+- [feature] Now that support for PyCharm has been added, what about support for:
 
-  it would be nice if the repository, tools such as black, python interpreter,
-  project structure could all be setup out of the box.
-
-- [research] Look at flake8 plugins
-
-- [research] Add template coverage
-
-  https://pypi.org/project/django-coverage-plugin/
-
-- [resarch] looks like `keywords` in setup.py might be a comma separated list.
-
-- [decision] add a makefile for windows?
+    VSCode
 
 - [documentation] document how .cookiecutterrc is used to create defaults.
 
@@ -79,5 +27,3 @@ likelihood of getting worked on:
 - [documentation] Create a "standard" outline for the app README.rst that h
   as all the useful/expected sections and takes a little part of the effort
   out of creating documentation.
-
-  - remove the table of contents
