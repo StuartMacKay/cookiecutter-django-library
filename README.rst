@@ -176,6 +176,14 @@ To generate the project you will be asked for the following fields, in order:
       - Create an example project (views, models, etc.). This is mainly used
         for debugging the template during development.
 
+    * - ide
+      - pycharm
+      - Create the configuration files for an Integrated Development Environment.
+        The list of choices includes:
+
+          * `pycharm`_
+          * other
+
     * - code_checker
       - flake8
       - Tools for checking code quality. The list of choices includes:
@@ -315,6 +323,7 @@ Both are excellent and it's worth your time to take a look.
 .. _make: https://www.gnu.org/software/make/manual/html_node/index.html
 .. _PEP 0314: https://www.python.org/dev/peps/pep-0314/
 .. _pip-tools: https://github.com/jazzband/pip-tools
+.. _pycharm: https://www.jetbrains.com/pycharm/
 .. _pylama: https://pylama.readthedocs.io/en/latest/
 .. _pytest: https://docs.pytest.org/en/stable/
 .. _Read The Docs: https://readthedocs.org/

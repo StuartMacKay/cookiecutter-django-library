@@ -16,6 +16,7 @@ Latest
 * For development, generating the virtualenv and repository can be skipped.
 * Changed keywords parameter to be a comma-separated list of words.
 * Added a config file for editors.
+* Added support for PyCharm.
 
 v0.1.0 (2020-09-12)
 -------------------

@@ -11,6 +11,7 @@ CREATE_VIRTUALENV = "{{ cookiecutter.create_virtualenv }}" == "y"
 CREATE_PROJECT = "{{ cookiecutter.create_project }}" == "y"
 CREATE_REPOSITORY = "{{ cookiecutter.repository_url }}" != ""
 
+USE_PYCHARM = "{{ cookiecutter.ide }}" == "pycharm"
 USE_PYTEST = "{{ cookiecutter.test_runner}}" == "pytest"
 USE_READTHEDOCS = "{{ cookiecutter.use_readthedocs}}" == "y"
 USE_TRAVIS = "{{ cookiecutter.continuous_integration }}" == "Travis CI"
@@ -18,6 +19,7 @@ USE_TRAVIS = "{{ cookiecutter.continuous_integration }}" == "Travis CI"
 if COOKIECUTTER_ENV == 'dev':
     CREATE_VIRTUALENV = not os.path.exists("venv")
     CREATE_REPOSITORY = not os.path.exists(".git")
+    USE_PYCHARM = USE_PYCHARM and not os.path.exists(".idea")
 
 
 def remove(filepath):
@@ -58,6 +60,9 @@ def cleanup():
         remove("src/{{ cookiecutter.app_slug }}/locale/en")
         remove("src/{{ cookiecutter.app_slug }}/migrations/0001_initial.py")
         remove("src/{{ cookiecutter.app_slug }}/tests/test_views.py")
+
+    if not USE_PYCHARM:
+        remove(".idea")
 
     if not USE_PYTEST:
         remove("requirements/tests.in")

@@ -34,6 +34,11 @@
     "create_virtualenv": "y",
     "create_project": "n",
 
+    "ide": [
+        "pycharm",
+        "other"
+    ],
+
     "code_checker": [
         "flake8",
         "pylama",
