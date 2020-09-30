@@ -4,6 +4,9 @@ Changelog
 Latest
 ------
 
+v0.2.0 (2020-09-30)
+-------------------
+
 * Added cookiecutter parameter for the project's website
 * Added cookiecutter parameter for the remote repository URL
 * Added .editorconfig

@@ -11,7 +11,7 @@ def read(filename):
 
 setup(
     name="cookiecutter-django-library",
-    version="0.1.0",
+    version="0.2.0",
     description="Cookiecutter template for a installable Django application",
     long_description=read("README.rst"),
     long_description_content_type="text/x-rst",

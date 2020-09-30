@@ -85,7 +85,7 @@ To generate the project you will be asked for the following fields, in order:
         project.
 
     * - project_version
-      - 0.1.0
+      - 0.2.0
       - The initial version number of your project. Optionally managed by
         bump2version after that.
 
