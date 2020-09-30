@@ -14,7 +14,7 @@ CREATE_REPOSITORY = "{{ cookiecutter.repository_url }}" != ""
 USE_PYCHARM = "{{ cookiecutter.ide }}" == "pycharm"
 USE_PYTEST = "{{ cookiecutter.test_runner}}" == "pytest"
 USE_READTHEDOCS = "{{ cookiecutter.use_readthedocs}}" == "y"
-USE_TRAVIS = "{{ cookiecutter.continuous_integration }}" == "Travis CI"
+USE_TRAVIS = "{{ cookiecutter.continuous_integration }}" == "travis"
 
 if COOKIECUTTER_ENV == 'dev':
     CREATE_VIRTUALENV = not os.path.exists("venv")

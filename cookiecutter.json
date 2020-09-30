@@ -69,7 +69,7 @@
     ],
 
     "continuous_integration": [
-        "Travis CI",
-        "Other"
+        "travis",
+        "other"
     ]
 }

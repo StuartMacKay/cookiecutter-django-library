@@ -250,12 +250,12 @@ To generate the project you will be asked for the following fields, in order:
         how much life it has right now.
 
     * - continuous_integration
-      - Travis CI
+      - travis
       - Use a third-party Continuous Integration service.
         Available options include::
 
-          * `Travis CI`_
-          * Other
+          * `travis`_
+          * other
 
 Making a release
 ----------------
@@ -329,4 +329,4 @@ Both are excellent and it's worth your time to take a look.
 .. _Read The Docs: https://readthedocs.org/
 .. _Signing Your Work: https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work
 .. _tox: https://tox.readthedocs.io/en/latest/
-.. _Travis CI: https://travis-ci.com/
+.. _travis: https://travis-ci.com/
