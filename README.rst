@@ -22,7 +22,7 @@ to delete a bunch of stuff you did not want.
 
 Local first - only PyPI for installed dependencies and deploying the project
 is considered essential. Integrations with other third-party services are
-considered extras and, if included, are optional.
+considered optional extras.
 
 Features
 --------
