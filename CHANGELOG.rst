@@ -5,6 +5,7 @@ Latest
 ------
 
 * Added docs that can be published in Read The Docs
+* Added tests to verify template
 * Changed urls.py to exclude the example view if create_project is set to "n"
 * Changed post-generation hook so virtual env, etc. can be overwritten in development
 * Changed the requirements for the cookiecutter project so there are separate files
