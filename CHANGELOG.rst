@@ -5,6 +5,7 @@ Latest
 ------
 
 * Changed urls.py to exclude the example view if create_project is set to "n"
+* Changed post-generation hook so virtual env, etc. can be overwritten in development
 
 v0.2.0 (2020-09-30)
 -------------------

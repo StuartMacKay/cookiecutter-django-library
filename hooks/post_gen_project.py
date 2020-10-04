@@ -17,8 +17,8 @@ USE_READTHEDOCS = "{{ cookiecutter.use_readthedocs}}" == "y"
 USE_TRAVIS = "{{ cookiecutter.continuous_integration }}" == "travis"
 
 if COOKIECUTTER_ENV == 'dev':
-    CREATE_VIRTUALENV = not os.path.exists("venv")
-    CREATE_REPOSITORY = not os.path.exists(".git")
+    CREATE_VIRTUALENV = CREATE_VIRTUALENV and not os.path.exists("venv")
+    CREATE_REPOSITORY = CREATE_REPOSITORY and not os.path.exists(".git")
     USE_PYCHARM = USE_PYCHARM and not os.path.exists(".idea")
 
 
