@@ -308,6 +308,11 @@ Changelog
 See the `CHANGELOG.rst`_ for a complete history of changes and what is currently
 being prepared for release.
 
+Roadmap
+-------
+
+See the `ROADMAP.rst`_ for details on what's coming.
+
 Acknowledgements
 ----------------
 
@@ -331,6 +336,7 @@ Both are excellent and it's worth your time to take a look.
 .. _pylama: https://pylama.readthedocs.io/en/latest/
 .. _pytest: https://docs.pytest.org/en/stable/
 .. _Read The Docs: https://readthedocs.org/
+.. _ROADMAP.rst: https://github.com/StuartMacKay/cookiecutter-django-library/blob/master/ROADMAP.rst
 .. _Signing Your Work: https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work
 .. _tox: https://tox.readthedocs.io/en/latest/
 .. _travis: https://travis-ci.com/
