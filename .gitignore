@@ -12,6 +12,7 @@ __pycache__/
 !.gitignore
 !.gitkeep
 !.env
+!.readthedocs.yml
 
 # Development artefacts
 build
