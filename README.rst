@@ -28,6 +28,7 @@ Features
 --------
 
 * Build and deploy an app right out of the box.
+* Code checking with `flake8`_ or `pylama`_.
 * Opinionated code formatting with `black`_ and `isort`_.
 * Automate tasks for testing, building and deploying your app with `make`_.
 * Manage package versions and your virtualenv with `pip-tools`_.
@@ -35,6 +36,9 @@ Features
 * Initializes git and connects it to a remote repository.
 * Sign commits, tags and uploads by default so you don't forget.
 * Easily run tests for all supported environments using `tox`_.
+* Publish documentation to ReadTheDocs.io.
+* Use Travis CI for continuous integration.
+* Generate project files for PyCharm.
 
 Quick start
 -----------
