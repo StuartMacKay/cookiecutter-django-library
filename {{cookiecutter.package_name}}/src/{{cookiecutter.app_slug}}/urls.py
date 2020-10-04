@@ -3,7 +3,9 @@
 {% endif -%}
 
 from django.urls import path
+{%- if cookiecutter.create_project == "y" %}
 
-{% if cookiecutter.create_project %}from .views import IndexView{% endif %}
+from .views import IndexView
+{%- endif %}
 
-urlpatterns = [{% if cookiecutter.create_project %}path("", IndexView.as_view(), name="app_index"){% endif %}]
+urlpatterns = [{% if cookiecutter.create_project == "y" %}path("", IndexView.as_view(), name="app_index"){% endif %}]
