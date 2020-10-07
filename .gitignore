@@ -9,10 +9,8 @@ __pycache__/
 # Ignore dot files except those required for the project
 .*
 !.bumpversion.cfg
-!.cookiecutter
 !.gitignore
 !.gitkeep
-!.env
 !.readthedocs.yml
 
 # Development artefacts
