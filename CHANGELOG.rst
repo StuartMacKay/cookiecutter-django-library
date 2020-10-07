@@ -8,6 +8,7 @@ Latest
 * Added tests to verify template
 * Added targets to Makefile to simplify development
 * Added a guide for contributors
+* Added outlines with comments for the README and CONTRIBUTING guide to the template
 * Changed urls.py to exclude the example view if create_project is set to "n"
 * Changed post-generation hook so virtual env, etc. can be overwritten in development
 * Changed the requirements for the cookiecutter project so there are separate files
