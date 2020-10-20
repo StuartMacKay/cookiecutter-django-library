@@ -74,7 +74,7 @@ venv:
 	$(site_python) -m venv venv
 	$(pip) install --upgrade pip setuptools wheel
 	$(pip) install pip-tools
-	$(pip-sync) -r requirements/dev.txt
+	$(pip-sync) requirements/dev.txt
 
 # include any local makefiles
 -include *.mk
