@@ -2,3 +2,5 @@
 -r tests.in
 
 bump2version
+cookiecutter
+tox

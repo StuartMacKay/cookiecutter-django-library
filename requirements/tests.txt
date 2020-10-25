@@ -10,7 +10,7 @@ binaryornot==0.4.4        # via cookiecutter
 certifi==2020.6.20        # via requests
 chardet==3.0.4            # via binaryornot, requests
 click==7.1.2              # via cookiecutter
-cookiecutter==1.7.2       # via -r requirements/tests.in, pytest-cookies
+cookiecutter==1.7.2       # via pytest-cookies
 idna==2.10                # via requests
 jinja2-time==0.2.0        # via cookiecutter
 jinja2==2.11.2            # via cookiecutter, jinja2-time
