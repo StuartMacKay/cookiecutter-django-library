@@ -14,33 +14,34 @@ PYTHON = python{{ cookiecutter.python_version }}
 site_python := /usr/bin/env $(PYTHON)
 
 root_dir = $(realpath .)
+venv_dir = $(root_dir)/venv
 app_dir = $(root_dir)/src/{{ cookiecutter.app_slug }}
 
-python := $(root_dir)/venv/bin/python3
-pip := $(root_dir)/venv/bin/pip3
-pip-compile := $(root_dir)/venv/bin/pip-compile
-pip-sync := $(root_dir)/venv/bin/pip-sync
+python := $(venv_dir)/bin/python3
+pip := $(venv_dir)/bin/pip3
+pip-compile := $(venv_dir)/bin/pip-compile
+pip-sync := $(venv_dir)/bin/pip-sync
 django := $(python) $(root_dir)/manage.py
 {%- if cookiecutter.code_checker in ["flake8", "pylama"] %}
-checker := $(root_dir)/venv/bin/{{ cookiecutter.code_checker }}
+checker := $(venv_dir)/bin/{{ cookiecutter.code_checker }}
 {%- endif %}
 {%- if cookiecutter.use_black == "y" %}
-black := $(root_dir)/venv/bin/black
+black := $(venv_dir)/bin/black
 {%- endif %}
 {%- if cookiecutter.use_isort == "y" %}
-isort := $(root_dir)/venv/bin/isort
+isort := $(venv_dir)/bin/isort
 {%- endif %}
 {%- if cookiecutter.test_runner == "pytest" %}
-pytest := $(root_dir)/venv/bin/pytest
+pytest := $(venv_dir)/bin/pytest
 {%- endif %}
 {%- if cookiecutter.use_coverage == "y" %}
-coverage := $(root_dir)/venv/bin/coverage
+coverage := $(venv_dir)/bin/coverage
 {%- endif %}
 {%- if cookiecutter.use_bumpversion == "y" %}
-bumpversion := $(root_dir)/venv/bin/bump2version
+bumpversion := $(venv_dir)/bin/bump2version
 {%- endif %}
-tox := $(root_dir)/venv/bin/tox
-twine := $(root_dir)/venv/bin/twine
+tox := $(venv_dir)/bin/tox
+twine := $(venv_dir)/bin/twine
 
 
 commit_opts :={% if cookiecutter.sign_commits %} --gpg-sign{% endif %}

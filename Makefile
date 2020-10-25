@@ -13,15 +13,18 @@ PYTHON = python3.8
 # Where everything lives
 site_python := /usr/bin/env $(PYTHON)
 
-root_dir = $(realpath .)
+root_dir := $(realpath .)
+venv_dir := $(root_dir)/venv
 output_dir := $(root_dir)/output
 
-python := $(root_dir)/venv/bin/python3
-pip := $(root_dir)/venv/bin/pip3
-pip-compile := $(root_dir)/venv/bin/pip-compile
-pip-sync := $(root_dir)/venv/bin/pip-sync
-pytest := $(root_dir)/venv/bin/pytest
-bumpversion := $(root_dir)/venv/bin/bump2version
+python := $(venv_dir)/bin/python3
+pip := $(venv_dir)/bin/pip3
+pip-compile := $(venv_dir)/bin/pip-compile
+pip-sync := $(venv_dir)/bin/pip-sync
+pytest := $(venv_dir)/bin/pytest
+tox := $(venv_dir)/bin/tox
+bumpversion := $(venv_dir)/bin/bump2version
+cookiecutter := $(venv_dir)/bin/cookiecutter
 
 .PHONY: help
 help:
