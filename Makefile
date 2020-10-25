@@ -14,7 +14,7 @@ PYTHON = python3.8
 site_python := /usr/bin/env $(PYTHON)
 
 root_dir := $(realpath .)
-venv_dir := $(root_dir)/venv
+venv_dir := $(root_dir)/.venv
 output_dir := $(root_dir)/output
 
 python := $(venv_dir)/bin/python3
@@ -47,7 +47,7 @@ clean-tests:
 
 .PHONY: clean-venv
 clean-venv:
-	rm -rf venv
+	rm -rf $(venv_dir)
 
 .PHONY: bake
 bake:
@@ -73,8 +73,8 @@ patch:
 test: test
 	$(tox)
 
-venv:
-	$(site_python) -m venv venv
+.venv:
+	$(site_python) -m venv .venv
 	$(pip) install --upgrade pip setuptools wheel
 	$(pip) install pip-tools
 	$(pip-sync) requirements/dev.txt

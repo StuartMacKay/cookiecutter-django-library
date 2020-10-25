@@ -17,7 +17,7 @@ USE_READTHEDOCS = "{{ cookiecutter.use_readthedocs}}" == "y"
 USE_TRAVIS = "{{ cookiecutter.continuous_integration }}" == "travis"
 
 if COOKIECUTTER_ENV == 'dev':
-    CREATE_VIRTUALENV = CREATE_VIRTUALENV and not os.path.exists("venv")
+    CREATE_VIRTUALENV = CREATE_VIRTUALENV and not os.path.exists(".venv")
     CREATE_REPOSITORY = CREATE_REPOSITORY and not os.path.exists(".git")
     USE_PYCHARM = USE_PYCHARM and not os.path.exists(".idea")
 
@@ -31,11 +31,11 @@ def remove(filepath):
 
 def create_venv():
     python = "python{{ cookiecutter.python_version }}"
-    pip = "./venv/bin/pip{{ cookiecutter.python_version }}"
-    pip_compile = "./venv/bin/pip-compile"
-    pip_sync = "./venv/bin/pip-sync"
+    pip = "./.venv/bin/pip{{ cookiecutter.python_version }}"
+    pip_compile = "./.venv/bin/pip-compile"
+    pip_sync = "./.venv/bin/pip-sync"
 
-    subprocess.run([python, "-m", "venv", "venv"])
+    subprocess.run([python, "-m", "venv", ".venv"])
     subprocess.run([pip, "install", "--upgrade", "pip", "setuptools", "wheel"])
     subprocess.run([pip, "install", "pip-tools"])
 

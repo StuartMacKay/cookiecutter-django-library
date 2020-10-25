@@ -95,14 +95,14 @@ To set up `cookiecutter-django-library` for local development:
 
 3. Create and activate the virtual environment::
 
-    python3.8 -m venv venv
+    python3.8 -m venv .venv
     pip install --upgrade pip setuptools wheel
     pip install pip-tools
     pip -r requirements/dev.txt
 
    Now you can activate it using::
 
-    source venv/bin/activate
+    source .venv/bin/activate
 
 4. Create a branch for local development::
 

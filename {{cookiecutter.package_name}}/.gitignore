@@ -18,7 +18,7 @@ __pycache__/
 build
 dist
 reports
-venv
+.venv
 
 # Django runtime files
 db.sqlite3

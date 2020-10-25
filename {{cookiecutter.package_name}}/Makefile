@@ -14,7 +14,7 @@ PYTHON = python{{ cookiecutter.python_version }}
 site_python := /usr/bin/env $(PYTHON)
 
 root_dir = $(realpath .)
-venv_dir = $(root_dir)/venv
+venv_dir = $(root_dir)/.venv
 app_dir = $(root_dir)/src/{{ cookiecutter.app_slug }}
 
 python := $(venv_dir)/bin/python3
@@ -123,7 +123,7 @@ clean-coverage:
 
 .PHONY: clean-venv
 clean-venv:
-	rm -rf venv
+	rm -rf $(venv_dir)
 
 .PHONY: clean
 clean: clean-build clean-tests clean-coverage{% if cookiecutter.use_readthedocs == "y" %} clean-docs{% endif %}
@@ -205,11 +205,14 @@ test-all: test
 upload:
 	$(twine) upload $(upload_opts) dist/*
 
-venv:
-	$(site_python) -m venv venv
+.venv:
+	$(site_python) -m venv .venv
 	$(pip) install --upgrade pip setuptools wheel
 	$(pip) install pip-tools
 	$(pip-sync) requirements/dev.txt
+
+.PHONY: venv
+venv: .venv
 
 # include any local makefiles
 -include *.mk

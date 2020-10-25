@@ -29,7 +29,7 @@ def project(cookies_session):
 
 def test_run_migrations(project):
     """Verify the migrations run so we know Django is configured correctly"""
-    python = os.path.join(project, "venv", "bin", "python")
+    python = os.path.join(project, ".venv", "bin", "python")
     db = os.path.join(project, "db.sqlite3")
     assert not os.path.exists(db)
     subprocess.run([python, "manage.py", "migrate"], cwd=project, check=True)
@@ -38,7 +38,7 @@ def test_run_migrations(project):
 
 def test_run_tests(project):
     """Verify the tests run successfully, including black, flake8 and isort checks"""
-    runner = os.path.join(project, "venv", "bin", "pytest")
+    runner = os.path.join(project, ".venv", "bin", "pytest")
     subprocess.run([runner], cwd=project, check=True)
 
 
