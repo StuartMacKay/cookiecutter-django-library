@@ -149,7 +149,7 @@ checks:
 .PHONY: coverage
 coverage:
     {%- if cookiecutter.test_runner == "django" %}
-	$(coverage) run --rcfile=setup.cfg manage.py test library_project
+	$(coverage) run --rcfile=setup.cfg manage.py test {{ cookiecutter.app_slug }}
 	$(coverage) html --rcfile=setup.cfg
 	{%- else %}
 	pytest --cov={{ cookiecutter.app_slug }} --cov-config=setup.cfg --cov-report html

@@ -13,6 +13,7 @@ Latest
 * Changed post-generation hook so virtual env, etc. can be overwritten in development
 * Changed the requirements for the cookiecutter project so there are separate files
 * Changed the venv Makefile target to remove the -r flag in the call to pip-sync
+* Changed Makefile and setup.cfg to replace hard-wired name with cookiecutter variable
 
 v0.2.0 (2020-09-30)
 -------------------
