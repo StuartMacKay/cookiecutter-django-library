@@ -14,7 +14,7 @@ PYTHON = python3.8
 site_python := /usr/bin/env $(PYTHON)
 
 root_dir = $(realpath .)
-output_dir := $(realpath ..)
+output_dir := $(root_dir)/output
 
 python := $(root_dir)/venv/bin/python3
 pip := $(root_dir)/venv/bin/pip3

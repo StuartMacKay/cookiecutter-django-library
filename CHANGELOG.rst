@@ -14,6 +14,7 @@ Latest
 * Changed the requirements for the cookiecutter project so there are separate files
 * Changed the venv Makefile target to remove the -r flag in the call to pip-sync
 * Changed Makefile and setup.cfg to replace hard-wired name with cookiecutter variable
+* Changed the Makefile target 'bake' to generate the project locally
 
 v0.2.0 (2020-09-30)
 -------------------
