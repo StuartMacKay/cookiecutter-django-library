@@ -48,7 +48,7 @@ clean-venv:
 
 .PHONY: bake
 bake:
-	cookiecutter . \
+	$(cookiecutter) . \
 	    --config-file .cookiecutterrc \
 	    --overwrite-if-exists \
 	    --no-input \
@@ -68,7 +68,7 @@ patch:
 
 .PHONY: test
 test: test
-	tox
+	$(tox)
 
 venv:
 	$(site_python) -m venv venv

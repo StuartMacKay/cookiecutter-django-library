@@ -39,6 +39,7 @@ coverage := $(root_dir)/venv/bin/coverage
 {%- if cookiecutter.use_bumpversion == "y" %}
 bumpversion := $(root_dir)/venv/bin/bump2version
 {%- endif %}
+tox := $(root_dir)/venv/bin/tox
 twine := $(root_dir)/venv/bin/twine
 
 
@@ -132,17 +133,12 @@ build: clean-build
 
 .PHOMY: checks
 checks:
-	{%- if cookiecutter.code_checker == "flake8" %}
-	flake8 $(app_dir)
-	{%- endif %}
-	{%- if cookiecutter.code_checker == "pylama" %}
-	pylama $(app_dir)
-	{%- endif %}
+	$(checker) $(app_dir)
 	{%- if cookiecutter.use_black %}
-	black --check $(app_dir)
+	$(black) --check $(app_dir)
 	{%- endif %}
 	{%- if cookiecutter.use_isort %}
-	isort --check $(app_dir)
+	$(isort) --check $(app_dir)
 	{%- endif %}
 
 {% if cookiecutter.use_coverage == "y" -%}
@@ -152,7 +148,7 @@ coverage:
 	$(coverage) run --rcfile=setup.cfg manage.py test {{ cookiecutter.app_slug }}
 	$(coverage) html --rcfile=setup.cfg
 	{%- else %}
-	pytest --cov={{ cookiecutter.app_slug }} --cov-config=setup.cfg --cov-report html
+	$(pytest) --cov={{ cookiecutter.app_slug }} --cov-config=setup.cfg --cov-report html
 	{%- endif %}
 {%- endif %}
 
@@ -196,13 +192,13 @@ test:
 {%- if cookiecutter.test_runner == "django" %}
 	$(django) test {{ cookiecutter.app_slug }}
 {%- else %}
-	pytest $(pytest_opts)
+	$(pytest) $(pytest_opts)
 {%- endif %}
 
 .PHONY: test-all
 test-all: test
-	tox
-	{% if cookiecutter.use_readthedocs == "y" %}tox -e docs{% endif %}
+	$(tox)
+	{% if cookiecutter.use_readthedocs == "y" %}$(tox) -e docs{% endif %}
 
 .PHONY: upload
 upload:
