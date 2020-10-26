@@ -9,6 +9,8 @@ __pycache__/
 # Ignore dot files except those required for the project
 .*
 !.bumpversion.cfg
+!.env
+!.envrc
 !.gitignore
 !.gitkeep
 !.readthedocs.yml
