@@ -97,7 +97,7 @@ patch:
 	$(bumpversion) patch
 
 .PHONY: test
-test: test
+test:
 	$(tox)
 
 venv:
