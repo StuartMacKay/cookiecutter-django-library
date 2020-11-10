@@ -16,14 +16,13 @@
 
 
 # -- Project information -----------------------------------------------------
-# {% set parts = cookiecutter.project_version.split(".") %}
 
 project = "{{ cookiecutter.project_name }}"
 copyright = "{% now 'local', '%Y' %}, {{ cookiecutter.author }}"
 author = "{{ cookiecutter.author }}"
 
-version = "{{ parts[0] }}.{{ parts[1] }}"
-release = "{{ cookiecutter.project_version }}"
+version = "0.0"
+release = "0.0.0"
 
 
 # -- General configuration ---------------------------------------------------

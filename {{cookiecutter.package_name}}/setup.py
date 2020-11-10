@@ -28,7 +28,7 @@ def read(filename):
 
 setup(
     name="{{ cookiecutter.package_name }}",
-    version="{{ cookiecutter.project_version }}",
+    version="0.0.0",
     description="{{ cookiecutter.project_description }}",
     long_description=read("README.rst"),
     long_description_content_type="text/x-rst",

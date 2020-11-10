@@ -15,6 +15,7 @@ Latest
 * Changed the venv Makefile target to remove the -r flag in the call to pip-sync
 * Changed Makefile and setup.cfg to replace hard-wired name with cookiecutter variable
 * Changed the Makefile target 'bake' to generate the project locally
+* Removed project_version so initial version, 0.0.0, can be managed by bump2version
 
 v0.2.0 (2020-09-30)
 -------------------

@@ -1,4 +1,4 @@
-__version__ = "{{ cookiecutter.project_version }}"
+__version__ = "0.0.0"
 {%- if cookiecutter.author %}
 __author__ = "{{ cookiecutter.author }}"
 {%- endif %}

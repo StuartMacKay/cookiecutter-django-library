@@ -88,11 +88,6 @@ To generate the project you will be asked for the following fields, in order:
       - Metadata (defined in `PEP 0314`_) that can be used to categorize your
         project.
 
-    * - project_version
-      - 0.2.0
-      - The initial version number of your project. Optionally managed by
-        bump2version after that.
-
     * - project_license
       - Apache Software License 2.0
       - The license to release your project under. The list of choices includes:
