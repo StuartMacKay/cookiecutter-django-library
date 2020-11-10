@@ -6,8 +6,9 @@ __pycache__/
 # Editor temp files
 *~
 
-# Ignore dot files except those required for the project
+# Ignore configuration files except those required for the project
 .*
+!.idea/
 !.gitignore
 !.gitkeep
 !.editorconfig

@@ -18,11 +18,14 @@
       <excludeFolder url="file://$MODULE_DIR$/build" />
       <excludeFolder url="file://$MODULE_DIR$/dist" />
 {%- if cookiecutter.create_virtualenv == "y" %}
-      <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/.venv" />
 {%- endif %}
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="PackageRequirementsSettings">
+    <option name="requirementsPath" value="$MODULE_DIR$/requirements/dev.txt" />
   </component>
   <component name="PyDocumentationSettings">
     <option name="format" value="PLAIN" />
@@ -37,4 +40,9 @@
       </list>
     </option>
   </component>
+{%- if cookiecutter.test_runner == "pytest" %}
+  <component name="TestRunnerService">
+    <option name="PROJECT_TEST_RUNNER" value="pytest" />
+  </component>
+{%- endif %}
 </module>
