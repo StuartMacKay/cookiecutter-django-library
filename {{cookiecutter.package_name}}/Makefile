@@ -5,6 +5,7 @@
 #
 #    make clean
 #    make checks
+#    make test-all
 #    make patch build upload
 
 # You can set these variable on the command line.
@@ -13,35 +14,35 @@ PYTHON = python{{ cookiecutter.python_version }}
 # Where everything lives
 site_python := /usr/bin/env $(PYTHON)
 
-root_dir = $(realpath .)
+root_dir := $(realpath .)
 venv_dir = $(root_dir)/.venv
 app_dir = $(root_dir)/src/{{ cookiecutter.app_slug }}
 
-python := $(venv_dir)/bin/python3
-pip := $(venv_dir)/bin/pip3
-pip-compile := $(venv_dir)/bin/pip-compile
-pip-sync := $(venv_dir)/bin/pip-sync
-django := $(python) $(root_dir)/manage.py
+python = $(venv_dir)/bin/python3
+pip = $(venv_dir)/bin/pip3
+pip-compile = $(venv_dir)/bin/pip-compile
+pip-sync = $(venv_dir)/bin/pip-sync
+django = $(python) $(root_dir)/manage.py
 {%- if cookiecutter.code_checker in ["flake8", "pylama"] %}
-checker := $(venv_dir)/bin/{{ cookiecutter.code_checker }}
+checker = $(venv_dir)/bin/{{ cookiecutter.code_checker }}
 {%- endif %}
 {%- if cookiecutter.use_black == "y" %}
-black := $(venv_dir)/bin/black
+black = $(venv_dir)/bin/black
 {%- endif %}
 {%- if cookiecutter.use_isort == "y" %}
-isort := $(venv_dir)/bin/isort
+isort = $(venv_dir)/bin/isort
 {%- endif %}
 {%- if cookiecutter.test_runner == "pytest" %}
-pytest := $(venv_dir)/bin/pytest
+pytest = $(venv_dir)/bin/pytest
 {%- endif %}
 {%- if cookiecutter.use_coverage == "y" %}
-coverage := $(venv_dir)/bin/coverage
+coverage = $(venv_dir)/bin/coverage
 {%- endif %}
 {%- if cookiecutter.use_bumpversion == "y" %}
-bumpversion := $(venv_dir)/bin/bump2version
+bumpversion = $(venv_dir)/bin/bump2version
 {%- endif %}
-tox := $(venv_dir)/bin/tox
-twine := $(venv_dir)/bin/twine
+tox = $(venv_dir)/bin/tox
+twine = $(venv_dir)/bin/twine
 
 
 commit_opts :={% if cookiecutter.sign_commits %} --gpg-sign{% endif %}
@@ -54,6 +55,9 @@ upload_opts := --skip-existing{% if cookiecutter.sign_uploads %} --sign{% endif 
 {%- if cookiecutter.use_isort == "y" %}{{ opts.append("--isort") or "" }}{% endif %}
 pytest_opts := {{ opts|join(" ")}}
 {%- endif %}
+
+# include any local makefiles
+-include *.mk
 
 .PHONY: help
 help:
@@ -79,6 +83,7 @@ help:
 {%- if cookiecutter.use_readthedocs == "y" %}
 	@echo "  docs                 to build the HTML documentation"
 {%- endif %}
+	@echo "  install              to install the project dependencies in the virtualenv"
 {%- if cookiecutter.use_bumpversion == "y" %}
 	@echo "  major                to update the version number for a major release, e.g. 2.1 to 3.0"
 {%- endif %}
@@ -93,7 +98,7 @@ help:
 	@echo "  test                 to run the tests during development"
 	@echo "  test-all             to run the tests for all the supported environments"
 	@echo "  upload               to upload a release to PyPI repository"
-	@echo "  venv                 to create the virtualenv and install dependencies"
+	@echo "  venv                 to create the virtualenv"
 	@echo
 
 .PHONY: clean-build
@@ -159,6 +164,15 @@ docs:
 	cd docs && make html
 {%- endif %}
 
+.PHONY: install
+install:
+	$(pip) install --upgrade pip setuptools wheel
+	$(pip) install pip-tools
+	test -f requirements/docs.txt || $(pip-compile) requirements/docs.in
+	test -f requirements/dev.txt || $(pip-compile) requirements/dev.in
+	test -f requirements/tests.txt || $(pip-compile) requirements/tests.in
+	$(pip-sync) requirements/dev.txt
+
 .PHONY: major
 major:
 	$(bumpversion) major
@@ -205,14 +219,5 @@ test-all: test
 upload:
 	$(twine) upload $(upload_opts) dist/*
 
-.venv:
-	$(site_python) -m venv .venv
-	$(pip) install --upgrade pip setuptools wheel
-	$(pip) install pip-tools
-	$(pip-sync) requirements/dev.txt
-
-.PHONY: venv
-venv: .venv
-
-# include any local makefiles
--include *.mk
+venv:
+	$(site_python) -m venv $(venv_dir)
