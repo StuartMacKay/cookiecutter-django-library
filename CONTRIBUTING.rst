@@ -1,6 +1,6 @@
-============
+************
 Contributing
-============
+************
 
 Making the project useful to others can keeping it up to date can be
 a lot of work so contributions are welcome and appreciated. Every
@@ -142,7 +142,8 @@ in cookiecutter.json.
 Use the imperative style, see the existing entries to see how that is written.
 
 Tips
-----
+====
+
 To avoid having to repeatedly answer each question when running cookiecutter,
 create a .cookiecutterrc file with the values you to be different from the
 defaults. Here is the file that's used to generate the reference

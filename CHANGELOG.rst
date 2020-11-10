@@ -1,8 +1,9 @@
+*********
 Changelog
-=========
+*********
 
 Latest
-------
+======
 
 * Added docs that can be published in Read The Docs
 * Added tests to verify template
@@ -18,7 +19,7 @@ Latest
 * Removed project_version so initial version, 0.0.0, can be managed by bump2version
 
 v0.2.0 (2020-09-30)
--------------------
+===================
 
 * Added cookiecutter parameter for the project's website
 * Added cookiecutter parameter for the remote repository URL
@@ -38,6 +39,6 @@ v0.2.0 (2020-09-30)
 * Removed the cookiecutter parameter, use_piptools, it is needed for managing requirements
 
 v0.1.0 (2020-09-12)
--------------------
+===================
 
 * Released first version to PyPI.

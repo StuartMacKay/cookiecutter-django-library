@@ -1,10 +1,11 @@
+*******
 Roadmap
-=======
+*******
 
 This is a CHANGELOG - for the future.
 
 Upcoming
---------
+========
 
 The current feature set is sufficient for my needs so right now the focus
 is on finding and fixing bugs, making everything work smoothly and general

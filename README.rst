@@ -1,5 +1,6 @@
+***************************
 cookiecutter-django-library
-===========================
+***************************
 
 A Cookiecutter_ template that contains everything you need to develop a
 Django app that can be deployed to PyPI and installed in any project.
@@ -8,7 +9,7 @@ You can see what this template generates out of the box at:
 https://github.com/StuartMacKay/django-library-project.
 
 Philosophy
-----------
+==========
 
 This template just adds the basics for an app - a little more than you get
 with the startapp management command. Instead the focus on adding all the
@@ -25,7 +26,7 @@ is considered essential. Integrations with other third-party services are
 considered optional extras.
 
 Features
---------
+========
 
 * Build and deploy an app right out of the box.
 * Code checking with `flake8`_ or `pylama`_.
@@ -41,7 +42,7 @@ Features
 * Generate project files for PyCharm.
 
 Quick start
------------
+===========
 
 Ensure you have cookiecutter installed::
 
@@ -64,7 +65,7 @@ And the first, working, version of your app has been deployed on PyPI
 for all to enjoy!
 
 Configuration options
----------------------
+=====================
 
 To generate the project you will be asked for the following fields, in order:
 
@@ -92,16 +93,16 @@ To generate the project you will be asked for the following fields, in order:
       - Apache Software License 2.0
       - The license to release your project under. The list of choices includes:
 
-           * Apache Software License 2.0
-           * BSD 2-Clause License
-           * BSD 3-Clause License
-           * Common Development and Distribution License
-           * GNU General Public License version 3
-           * GNU Affero General Public License version 3
-           * GNU Lesser General Public License
-           * MIT license
-           * Mozilla Public License 2.0
-           * Other
+        * Apache Software License 2.0
+        * BSD 2-Clause License
+        * BSD 3-Clause License
+        * Common Development and Distribution License
+        * GNU General Public License version 3
+        * GNU Affero General Public License version 3
+        * GNU Lesser General Public License
+        * MIT license
+        * Mozilla Public License 2.0
+        * Other
 
         There is no preferred license. The Apache Software License 2.0 license
         is the default as it is the first in the list. There are many other
@@ -180,16 +181,16 @@ To generate the project you will be asked for the following fields, in order:
       - Create the configuration files for an Integrated Development Environment.
         The list of choices includes:
 
-          * `pycharm`_
-          * other
+        * `pycharm`_
+        * other
 
     * - code_checker
       - flake8
       - Tools for checking code quality. The list of choices includes:
 
-          * `flake8`_
-          * `pylama`_
-          * other
+        * `flake8`_
+        * `pylama`_
+        * other
 
     * - use_black
       - y
@@ -218,9 +219,9 @@ To generate the project you will be asked for the following fields, in order:
       - The theme to use when generating the docs for Read the Docs. The list
         of choices includes:
 
-          * sphinx-rtd-theme
-          * alabaster
-          * other
+        * sphinx-rtd-theme
+        * alabaster
+        * other
 
         The theme is only used if ``use_readthedocs`` is set.
 
@@ -239,10 +240,10 @@ To generate the project you will be asked for the following fields, in order:
 
     * - test_runner
       - django
-      - The test runner to use. Available options include::
+      - The test runner to use. Available options include:
 
-          * django
-          * `pytest`_
+        * django
+        * `pytest`_
 
         Nose has been on maintenance since 2015 so it is not included here.
         There does seem to be a follow-up project, nose2, but it's not clear
@@ -251,13 +252,14 @@ To generate the project you will be asked for the following fields, in order:
     * - continuous_integration
       - travis
       - Use a third-party Continuous Integration service.
-        Available options include::
+        Available options include:
 
-          * `travis`_
-          * other
+        * `travis`_
+        * other
 
 Making a release
-----------------
+================
+
 The Makefile is intended to automate as much as possible so releasing a new
 patch version is as simple as::
 
@@ -298,18 +300,18 @@ know exactly where it came from. You'll need to generate a GPG key first.
 `Signing Your Work`_ is a good guide on how to do that.
 
 Changelog
----------
+=========
 
 See the `CHANGELOG.rst`_ for a complete history of changes and what is currently
 being prepared for release.
 
 Roadmap
--------
+=======
 
 See the `ROADMAP.rst`_ for details on what's coming.
 
 Acknowledgements
-----------------
+================
 
 The following cookiecutter projects were raided for good ideas:
 
