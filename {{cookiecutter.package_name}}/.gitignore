@@ -8,6 +8,8 @@ __pycache__/
 
 # Ignore configuration files except those required for the project
 .*
+!.env
+!.envrc
 !.idea/
 !.gitignore
 !.gitkeep
