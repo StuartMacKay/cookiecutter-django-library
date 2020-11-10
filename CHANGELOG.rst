@@ -5,6 +5,9 @@ Changelog
 Latest
 ======
 
+v0.3.0 (2020-11-10)
+===================
+
 * Added docs that can be published in Read The Docs
 * Added tests to verify template
 * Added targets to Makefile to simplify development

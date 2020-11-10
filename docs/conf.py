@@ -22,8 +22,8 @@ project = "Cookiecutter Django Library"
 copyright = "2020, Stuart MacKay"
 author = "Stuart MacKay"
 
-version = "0.2"
-release = "0.2.0"
+version = "0.3"
+release = "0.3.0"
 
 
 # -- General configuration ---------------------------------------------------
