@@ -70,6 +70,12 @@ clean-tests:
 clean-venv:
 	rm -rf $(venv_dir)
 
+$(pip):
+	$(pip) install --upgrade pip setuptools wheel
+
+$(pip-compile): $(pip)
+	$(pip) install pip-tools
+
 .PHONY: bake
 bake:
 	$(cookiecutter) . \
@@ -79,9 +85,7 @@ bake:
 	    --output-dir $(output_dir)
 
 .PHONY: install
-install:
-	$(pip) install --upgrade pip setuptools wheel
-	$(pip) install pip-tools
+install: venv $(pip-compile) requirements
 	$(pip-sync) requirements/dev.txt
 
 .PHONY: major
@@ -96,9 +100,22 @@ minor:
 patch:
 	$(bumpversion) patch
 
+requirements/dev.txt: requirements/*.in
+	$(pip-compile) requirements/dev.in
+
+requirements/docs.txt: requirements/docs.in
+	$(pip-compile) requirements/docs.in
+
+requirements/tests.txt: requirements/tests.in
+	$(pip-compile) requirements/tests.in
+
+requirements: requirements/*.txt
+
 .PHONY: test
 test:
 	$(tox)
 
-venv:
+$(venv_dir):
 	$(site_python) -m venv $(venv_dir)
+
+venv: $(venv_dir)
