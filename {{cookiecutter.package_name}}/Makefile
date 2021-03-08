@@ -143,7 +143,7 @@ $(pip-compile): $(pip)
 build: clean-build
 	$(python) setup.py sdist bdist_wheel
 
-.PHOMY: checks
+.PHONY: checks
 checks:
 	$(checker) $(app_dir)
 	{%- if cookiecutter.use_black %}
