@@ -180,7 +180,7 @@ major:
 
 .PHONY: messages
 messages:
-	cd $(app_dir) && $(django) makemessages --no-obsolete --all && $(django) compilemessages
+	$(django) makemessages --no-obsolete --all && $(django) compilemessages --ignore .venv
 
 .PHONY: migrate
 migrate:

@@ -6,6 +6,7 @@ Latest
 ======
 
 * Changed the Makefile 'install' target so it also adds new packages to the virtualenv
+* Changed the Makefile 'messages' target so it compiles the translation strings
 
 v0.3.0 (2020-11-10)
 ===================
